@@ -1,0 +1,42 @@
+{
+  "name": "my-project",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist",
+  "scripts": {
+    "clean": "rm -rf node_modules coverage",
+    "lint": "eslint ./index.js",
+    "lintFix": "eslint ./index.js --fix",
+    "serverless": "npm install -g @google-cloud/functions-emulator serverless firebase-tools",
+    "test": "NODE_ENV=test jest --coverage .",
+    "update": "./node_modules/npm-check-updates/bin/ncu -a",
+    "dev": "nodemon ./src/local.js",
+    "predeploy": "sucrase ./src -d ./dist --transforms imports",
+    "deploy": "node ./node_modules/serverless/bin/serverless deploy"
+  },
+  "author": "Luiz Felipe Neves",
+  "license": "MIT",
+  "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "npm-check-updates": "^4.0.4",
+    "prettier": "^1.19.1",
+    "serverless": "^1.66.0",
+    "serverless-google-cloudfunctions": "^2.4.1",
+    "serverless-layers": "^2.0.3-alpha",
+    "sucrase": "^3.12.1"
+  },
+  "dependencies": {
+    "atob": "^2.1.2",
+    "btoa": "^1.2.1"
+  },
+  "jest": {
+    "transform": {
+      ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
+    }
+  }
+}
