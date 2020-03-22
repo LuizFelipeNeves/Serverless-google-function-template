@@ -1,4 +1,14 @@
-# serverless-google-function-template
+# Serverless boilerplate to Google-functions
+This is a boilerplate for the Serverless framework, and google as a provider, tests with Jest, configured Eslint, airbnb standard, sucrase to support imports.
+___
+## Tech Stack:
+- Sucrase
+- Eslint + Prettier (Airbnb config)
+- Tests with Jest
+- Nodemon
+- Serverless framework
+- Google-cloud/functions-emulator / firebase-tools
+___
 
 ## How to setup, write, test and deploy your own serverless functions
 
@@ -144,7 +154,7 @@ Run the tool (some shells will have a conflict with the default functions, use f
 ```bash
 functions-emulator --help
 ```
-
+___
 ### Creating a serverless project
 
 When starting a new serverless project first consider what feature or service your functions will serve.  Check to see if a serverless project already exists for that feature or service.  If not create a new project using the ORM project template.
@@ -162,7 +172,7 @@ Update serverless.yml including service name, function name(s) and provider proj
 Update README.md to describe the service your functions will serve.
 
 Once set git init and create a repo in git and push your initial commit.
-
+___
 ### Developing a function
 
 During the development lifecycle we are using node 6.11.5 and es6 as standards for writing.  ESlint and jest are standards for linting and testing.
@@ -219,7 +229,7 @@ Stop the emulator
 ```bash
 functions-emulator stop
 ```
-
+___
 ### Deploying a function
 
 Deploy your function
