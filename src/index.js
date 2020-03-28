@@ -7,5 +7,5 @@ export const http = (request, response) => {
 }
 
 export const event = (event, callback) => {
-  return callback(ProcessData(event.data))
+  return callback(ProcessData(event.data, event.attributes))
 }

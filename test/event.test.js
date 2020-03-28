@@ -2,10 +2,8 @@ import { event } from '../src'
 import btoa from 'btoa'
 
 describe('#event web request no data', () => {
-  test('should return Insert a User data, when event.data.user is null', done => {
-    const bin = {}
-    const encoded = btoa(JSON.stringify(bin))
-    const mockEvent = { data: encoded }
+  test('should return Insert a User data, when event.data is null', done => {
+    const mockEvent = { data: null }
 
     function callback(data) {
       expect(data).toBe('Insert a User data')
@@ -17,13 +15,12 @@ describe('#event web request no data', () => {
 })
 
 describe('#event pubsub request with data', () => {
-  test('should return Processed: Developer, when event.data.user is Developer', done => {
-    const bin = { User: 'Developer' }
-    const encoded = btoa(JSON.stringify(bin))
-    const mockEvent = { data: encoded }
+  test('should return Processed: Developer, when event.data is Developer', done => {
+    const encoded = btoa('Developer')
+    const mockEvent = { data: encoded, attributes: { id: '01' } }
 
     const callback = data => {
-      expect(data).toBe('Processed: Developer')
+      expect(data).toBe('Processed: Developer, ID: 01')
       done()
     }
 

@@ -1,9 +1,9 @@
 import atob from 'atob'
 
-export default message => {
-  if (message) {
-    const { User } = JSON.parse(atob(message))
-    if (User) return `Processed: ${User}`
+export default (message, attributes) => {
+  if (message && attributes.id) {
+    const text = atob(message)
+    if (text) return `Processed: ${text}, ID: ${attributes.id}`
   }
   return 'Insert a User data'
 }

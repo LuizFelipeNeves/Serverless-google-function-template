@@ -2,7 +2,6 @@
 import btoa from 'btoa'
 import ProcessData from './functions/ProcessData'
 
-const bin = { User: 'Developer' }
-const encoded = btoa(JSON.stringify(bin))
-const event = { data: encoded }
-ProcessData(event.data)
+const encoded = btoa('Developer')
+const event = { data: encoded, attributes: { id: '01' } }
+ProcessData(event.data, event.attributes)
